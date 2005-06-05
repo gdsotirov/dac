@@ -33,9 +33,9 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 408
-    ActivePage = TabSheet4
+    ActivePage = TabSheet5
     Anchors = [akLeft, akTop, akRight, akBottom]
-    TabIndex = 3
+    TabIndex = 4
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Amplitude Distribution'
@@ -140,6 +140,7 @@ object MainForm: TMainForm
         Title.Text.Strings = (
           'Amplitude Distribution Comparison')
         LeftAxis.Title.Caption = 'cos(Psi)'
+        Legend.LegendStyle = lsSeries
         View3D = False
         BevelOuter = bvNone
         TabOrder = 0
@@ -299,7 +300,9 @@ object MainForm: TMainForm
         MarginTop = 5
         Title.Text.Strings = (
           'D.N.D.')
+        Legend.LegendStyle = lsSeries
         View3D = False
+        View3DWalls = False
         BevelOuter = bvNone
         TabOrder = 0
         Anchors = [akLeft, akTop, akRight, akBottom]
@@ -395,28 +398,18 @@ object MainForm: TMainForm
     object TabSheet5: TTabSheet
       Caption = 'Results'
       ImageIndex = 4
-      OnShow = TabSheet5Show
       DesignSize = (
         617
         380)
       object REResults: TRichEdit
         Left = 4
-        Top = 44
+        Top = 8
         Width = 609
-        Height = 325
+        Height = 361
         Anchors = [akLeft, akTop, akRight, akBottom]
         BorderStyle = bsNone
         ReadOnly = True
         TabOrder = 0
-      end
-      object BtnCalculate: TButton
-        Left = 4
-        Top = 8
-        Width = 75
-        Height = 25
-        Caption = 'Calculate'
-        TabOrder = 1
-        OnClick = BtnCalculateClick
       end
     end
   end

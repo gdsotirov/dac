@@ -1,12 +1,9 @@
 #include <vcl.h>
 #pragma hdrstop
-
-USEFORM("mainform.cpp", MainForm);
-USEFORM("enter_data.cpp", EnterData);
+USEFORM("mainform.cpp", MainForm);USEFORM("enter_data.cpp", EnterData);
 USEFORM("about.cpp", AboutBox);
 
-WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
-  try {
+WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {  try {
     Application->Initialize();
     Application->Title = "DND";
     Application->CreateForm(__classid(TMainForm), &MainForm);
@@ -28,3 +25,4 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
   return 0;
 }
+

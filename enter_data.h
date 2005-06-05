@@ -1,13 +1,10 @@
-#ifndef enter_dataH
-#define enter_dataH
+#ifndef enter_dataH#define enter_dataH
 
-#include <Classes.hpp>
-#include <Controls.hpp>
+#include <Classes.hpp>#include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 
-class TEnterData : public TForm {
-__published: // IDE-managed Components
+class TEnterData : public TForm {__published: // IDE-managed Components
   TGroupBox *GBFreqRange;
   TEdit *f1_min;
   TLabel *Label1;
@@ -33,5 +30,4 @@ public:
 };
 
 extern PACKAGE TEnterData *EnterData;
-
 #endif

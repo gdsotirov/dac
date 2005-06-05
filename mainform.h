@@ -1,8 +1,6 @@
-#ifndef MainFormH
-#define MainFormH
+#ifndef MainFormH#define MainFormH
 
-#include <Classes.hpp>
-#include <Controls.hpp>
+#include <Classes.hpp>#include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 #include <Menus.hpp>
@@ -14,10 +12,7 @@
 #include <Series.hpp>
 
 #define MSG_DATACHANGE (WM_APP + 100)
-
-const double b_tbl[] = {-24.6, -30.6, -38.2};
-const long b_tbl_len = 3;
-
+const double b_tbl[] = {-24.6, -30.6, -38.2};const long b_tbl_len = 3;
 
 class TMainForm : public TForm {
 __published: // IDE-managed Components
@@ -53,9 +48,9 @@ __published: // IDE-managed Components
   TLineSeries *Series11;
   TLineSeries *Series12;
   TLineSeries *Series13;
-  TCheckBox *CB_L0;
-  TCheckBox *CB_L1;
-  TCheckBox *CB_L2;
+        TCheckBox *CB_L0;
+        TCheckBox *CB_L1;
+        TCheckBox *CB_L2;
   void __fastcall FileExitClick(TObject *Sender);
   void __fastcall EditEnterDataClick(TObject *Sender);
   void __fastcall HelpAboutClick(TObject *Sender);
@@ -122,5 +117,4 @@ public:
 };
 
 extern PACKAGE TMainForm *MainForm;
-
 #endif

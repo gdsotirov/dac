@@ -369,9 +369,9 @@ object AboutBox: TAboutBox
     object Comments: TLabel
       Left = 8
       Top = 104
-      Width = 49
-      Height = 13
-      Caption = 'Comments'
+      Width = 257
+      Height = 39
+      Caption = 'D.N.D. Graph builder'
       WordWrap = True
       IsControl = True
     end

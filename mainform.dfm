@@ -33,9 +33,9 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 408
-    ActivePage = TabSheet5
+    ActivePage = TabSheet1
     Anchors = [akLeft, akTop, akRight, akBottom]
-    TabIndex = 4
+    TabIndex = 0
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Amplitude Distribution'
@@ -47,11 +47,13 @@ object MainForm: TMainForm
         Top = 4
         Width = 617
         Height = 376
+        AnimatedZoom = True
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
         Title.Text.Strings = (
           'Amplitude distribution - f(x)')
         LeftAxis.ExactDateTime = False
+        LeftAxis.LabelStyle = talValue
         LeftAxis.TickOnLabelsOnly = False
         LeftAxis.Title.Caption = 'f(x)'
         Legend.LegendStyle = lsSeries
@@ -93,10 +95,12 @@ object MainForm: TMainForm
         Top = 4
         Width = 617
         Height = 376
+        AnimatedZoom = True
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
         Title.Text.Strings = (
           'Phase Distribution - f(Psi)')
+        LeftAxis.LabelStyle = talValue
         LeftAxis.Title.Caption = 'Psi, deg'
         Legend.LegendStyle = lsSeries
         Legend.TextStyle = ltsXValue
@@ -135,10 +139,12 @@ object MainForm: TMainForm
         Top = 8
         Width = 617
         Height = 376
+        AnimatedZoom = True
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
         Title.Text.Strings = (
           'Amplitude Distribution Comparison')
+        LeftAxis.LabelStyle = talValue
         LeftAxis.Title.Caption = 'cos(Psi)'
         Legend.LegendStyle = lsSeries
         View3D = False
@@ -291,57 +297,22 @@ object MainForm: TMainForm
         380)
       object ChartDND: TChart
         Left = 0
-        Top = 4
+        Top = 24
         Width = 617
-        Height = 376
+        Height = 356
         AnimatedZoom = True
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
         MarginTop = 5
         Title.Text.Strings = (
           'D.N.D.')
+        LeftAxis.LabelStyle = talValue
         Legend.LegendStyle = lsSeries
         View3D = False
         View3DWalls = False
         BevelOuter = bvNone
         TabOrder = 0
         Anchors = [akLeft, akTop, akRight, akBottom]
-        DesignSize = (
-          617
-          376)
-        object CB_L0: TCheckBox
-          Left = 600
-          Top = 36
-          Width = 13
-          Height = 17
-          Anchors = []
-          Checked = True
-          State = cbChecked
-          TabOrder = 0
-          OnClick = CB_L0Click
-        end
-        object CB_L1: TCheckBox
-          Left = 600
-          Top = 52
-          Width = 13
-          Height = 17
-          Anchors = []
-          Checked = True
-          State = cbChecked
-          TabOrder = 1
-          OnClick = CB_L1Click
-        end
-        object CB_L2: TCheckBox
-          Left = 600
-          Top = 69
-          Width = 13
-          Height = 17
-          Anchors = []
-          Checked = True
-          State = cbChecked
-          TabOrder = 2
-          OnClick = CB_L2Click
-        end
         object Series11: TLineSeries
           Marks.ArrowLength = 8
           Marks.Visible = False
@@ -379,7 +350,7 @@ object MainForm: TMainForm
         object Series13: TLineSeries
           Marks.ArrowLength = 8
           Marks.Visible = False
-          SeriesColor = clNavy
+          SeriesColor = clBlue
           Title = 'Lambda 2'
           Pointer.InflateMargins = True
           Pointer.Style = psRectangle
@@ -393,6 +364,39 @@ object MainForm: TMainForm
           YValues.Multiplier = 1
           YValues.Order = loNone
         end
+      end
+      object CB_L0: TCheckBox
+        Left = 16
+        Top = 4
+        Width = 109
+        Height = 17
+        Caption = 'Show Lambda 0'
+        Checked = True
+        State = cbChecked
+        TabOrder = 1
+        OnClick = CB_L0Click
+      end
+      object CB_L1: TCheckBox
+        Left = 140
+        Top = 4
+        Width = 109
+        Height = 17
+        Caption = 'Show Lambda 1'
+        Checked = True
+        State = cbChecked
+        TabOrder = 2
+        OnClick = CB_L1Click
+      end
+      object CB_L2: TCheckBox
+        Left = 264
+        Top = 4
+        Width = 109
+        Height = 17
+        Caption = 'Show Lambda 2'
+        Checked = True
+        State = cbChecked
+        TabOrder = 3
+        OnClick = CB_L2Click
       end
     end
     object TabSheet5: TTabSheet

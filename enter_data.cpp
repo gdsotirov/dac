@@ -1,5 +1,3 @@
-//---------------------------------------------------------------------------
-
 #include <vcl.h>
 #include <stdlib.h>
 #include <cmath>
@@ -7,24 +5,20 @@
 
 #include "enter_data.h"
 #include "mainform.h"
-//---------------------------------------------------------------------------
+
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 
 TEnterData *EnterData;
-//---------------------------------------------------------------------------
-__fastcall TEnterData::TEnterData(TComponent * Owner)
-        : TForm(Owner)
-{
+
+__fastcall TEnterData::TEnterData(TComponent * Owner) : TForm(Owner) {
 }
-//---------------------------------------------------------------------------
-void __fastcall TEnterData::BtnCancelClick(TObject *)
-{
-  this->Close();        
+
+void __fastcall TEnterData::BtnCancelClick(TObject *) {
+  this->Close();
 }
-//---------------------------------------------------------------------------
-void __fastcall TEnterData::BtnApplyClick(TObject *)
-{
+
+void __fastcall TEnterData::BtnApplyClick(TObject *) {
   double f1_min = this->f1_min->Text.ToDouble();
   double f1_max = this->f1_max->Text.ToDouble();
   double gmax = this->gmax->Text.ToDouble();
@@ -73,18 +67,16 @@ void __fastcall TEnterData::BtnApplyClick(TObject *)
   MainForm->set_gdb(gmax);
   MainForm->set_bi(bi);
   MainForm->set_v(v);
-  MainForm->set_data_ready(true);
+
+  SendMessage(MainForm->Handle, MSG_DATACHANGE, 0, (int)(this));
+
   this->Close();
 }
-//---------------------------------------------------------------------------
 
-void __fastcall TEnterData::FormShow(TObject *)
-{
+void __fastcall TEnterData::FormShow(TObject *) {
   f1_min->Text = AnsiString(MainForm->get_f1_min()/1e9);
   f1_max->Text = AnsiString(MainForm->get_f1_max()/1e9);
   gmax->Text = AnsiString(MainForm->get_gdb());
   bi->Text = AnsiString(MainForm->get_bi());
   v->Text = AnsiString(MainForm->get_v());
 }
-//---------------------------------------------------------------------------
-

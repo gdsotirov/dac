@@ -1,10 +1,40 @@
-#ifndef enter_dataH#define enter_dataH
+/* DND - a D.N.D. grapher utility
+ * Copyright (C) 2005 Georgi D. Sotirov, Boayn D. Sotirov
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
 
-#include <Classes.hpp>#include <Controls.hpp>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ */
+
+/* Title: Enter data frame
+ * Description: The definitions of the window for entering input parameters
+ * File: enter_data.h
+ * ---
+ * Written by George D. Sotirov <gdsotirov@dir.bg>
+ * $Id: enter_data.h,v 1.4 2005/06/06 17:25:16 gsotirov Exp $
+ */
+
+#ifndef enter_dataH
+#define enter_dataH
+
+#include <Classes.hpp>
+#include <Controls.hpp>
 #include <StdCtrls.hpp>
 #include <Forms.hpp>
 
-class TEnterData : public TForm {__published: // IDE-managed Components
+class TEnterData : public TForm {
+__published: // IDE-managed Components
   TGroupBox *GBFreqRange;
   TEdit *f1_min;
   TLabel *Label1;
@@ -30,4 +60,6 @@ public:
 };
 
 extern PACKAGE TEnterData *EnterData;
+
 #endif
+

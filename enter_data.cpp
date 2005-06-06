@@ -22,17 +22,17 @@
  * File: enter_data.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_data.cpp,v 1.4 2005/06/06 17:25:16 gsotirov Exp $
+ * $Id: enter_data.cpp,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
  */
 
 #include <vcl.h>
 #include <stdlib.h>
 #include <cmath>
+#pragma hdrstop
 
 #include "enter_data.h"
 #include "mainform.h"
 
-#pragma hdrstop
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 
@@ -96,7 +96,7 @@ void __fastcall TEnterData::BtnApplyClick(TObject *) {
   MainForm->set_v(v);
 
   SendMessage(MainForm->Handle, MSG_DATACHANGE, 0, (int)(this));
-  this->Close();
+  Close();
 }
 
 void __fastcall TEnterData::FormShow(TObject *) {
@@ -105,5 +105,6 @@ void __fastcall TEnterData::FormShow(TObject *) {
   gmax->Text = AnsiString(MainForm->get_gdb());
   bi->Text = AnsiString(MainForm->get_bi());
   v->Text = AnsiString(MainForm->get_v());
+  f1_min->SetFocus();
 }
 

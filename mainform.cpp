@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.4 2005/06/06 17:25:16 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -30,6 +30,7 @@
 
 #include "mainform.h"
 #include "enter_data.h"
+#include "enter_n.h"
 #include "about.h"
 #include "func.h"
 
@@ -72,16 +73,16 @@ void TMainForm::ClearPresentation(void) {
     ChartDND->Series[i]->Clear();
 }
 
-void TMainForm::CalculateAndPlot(void) {
+void TMainForm::CalculateAndPresentate(void) {
   AnsiString line;
 
   // Calculate the width of the main lobe
   Gmax = pow(10, Gdb/10);
-  line.sprintf("2 * tita_05_y = 2 * tita_06_x = 2 * tita_05");
+  line.sprintf("2 * tita 05y = 2 * tita 06x = 2 * tita 05");
   REResults->Lines->Add(line);
   tita_05 = sqrt(8500/Gmax);
   tita_05_rad = deg2rad(tita_05);
-  line.sprintf("tita_05 = %f deg = %f rad", tita_05, tita_05_rad);
+  line.sprintf("tita 05 = %f deg = %f rad", tita_05, tita_05_rad);
   REResults->Lines->Add(line);
   l1 = M_C / f1_min;
   l2 = M_C / f1_max;
@@ -109,7 +110,7 @@ void TMainForm::CalculateAndPlot(void) {
   line.sprintf("f = %f m", f);
   REResults->Lines->Add(line);
   double psi_0 = 2 * rad2deg(atan((D/2)/2*f));
-  line.sprintf("psi_0 = %f deg", psi_0);
+  line.sprintf("psi 0 = %f deg", psi_0);
   REResults->Lines->Add(line);
 
   double step = 0.5*D/10;
@@ -154,6 +155,30 @@ void TMainForm::CalculateAndPlot(void) {
        ChartDND->Series[i]->AddXY(U, y, lbl);
      }
    }
+
+   line.sprintf("Beamer parameters:");
+   REResults->Lines->Add(line);
+
+   Pages->ActivePage = TabSheet3;
+   EnterN = new TEnterN(this);
+   EnterN->ShowModal();
+
+   double psi_07 = acos(pow(0.707, 1/(double)get_n()));
+   double psi_07_deg = rad2deg(psi_07);
+   line.sprintf("psi 07 = %f rad = %f deg", psi_07, psi_07_deg);
+   REResults->Lines->Add(line);
+
+   double Dr = 60 * l0/psi_07_deg;
+   line.sprintf("D rupor = %f m", Dr);
+   REResults->Lines->Add(line);
+
+   double R = (Dr*Dr)/(2.4 * l0) - 0.15 * l0;
+   line.sprintf("R = %f m", R);
+   REResults->Lines->Add(line);
+
+   double G_db = 10 * log10(5 * pow(Dr/l0, 2));
+   line.sprintf("G = %d dB", G_db);
+   REResults->Lines->Add(line);
 }
 
 void __fastcall TMainForm::FormShow(TObject *) {
@@ -175,7 +200,7 @@ void __fastcall TMainForm::CB_L2Click(TObject *) {
 void __fastcall TMainForm::OnDataChange(TMessage & Message) {
   if ( Message.Msg == MSG_DATACHANGE ) {
     ClearPresentation();
-    CalculateAndPlot();
+    CalculateAndPresentate();
   }
 }
 

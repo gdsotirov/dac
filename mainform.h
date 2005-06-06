@@ -22,7 +22,7 @@
  * File: mainform.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.h,v 1.4 2005/06/06 17:25:16 gsotirov Exp $
+ * $Id: mainform.h,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
  */
 
 #ifndef MainFormH
@@ -107,6 +107,7 @@ private:
   double D;
   unsigned int p;
   double f;
+  int n;
 protected:
   void __fastcall OnDataChange(TMessage &Message);
   BEGIN_MESSAGE_MAP
@@ -129,6 +130,9 @@ public:
   inline double get_v(void) const {
     return v;
   }
+  inline int get_n(void) const {
+    return n;
+  }
   inline void set_freqency_range(double min, double max) {
     f1_min = min;
     f1_max = max;
@@ -142,9 +146,12 @@ public:
   inline void set_v(double value) {
     v = value;
   }
+  inline void set_n(int value) {
+    n = value;
+  }
 
   void ClearPresentation(void);
-  void CalculateAndPlot(void);
+  void CalculateAndPresentate(void);
 };
 
 extern PACKAGE TMainForm *MainForm;

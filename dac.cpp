@@ -22,7 +22,7 @@
  * File: dnd.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: dac.cpp,v 1.4 2005/06/06 17:25:16 gsotirov Exp $
+ * $Id: dac.cpp,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -32,15 +32,17 @@
 USEFORM("mainform.cpp", MainForm);
 USEFORM("enter_data.cpp", EnterData);
 USEFORM("about.cpp", AboutBox);
-
+USEFORM("enter_n.cpp", EnterN);
+//---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   try {
     Application->Initialize();
     Application->Title = "DND";
     Application->CreateForm(__classid(TMainForm), &MainForm);
-    Application->CreateForm(__classid(TEnterData), &EnterData);
-    Application->CreateForm(__classid(TAboutBox), &AboutBox);
-    Application->Run();
+                 Application->CreateForm(__classid(TEnterData), &EnterData);
+                 Application->CreateForm(__classid(TAboutBox), &AboutBox);
+                 Application->CreateForm(__classid(TEnterN), &EnterN);
+                 Application->Run();
   }
   catch (Exception &exception) {
     Application->ShowException(&exception);

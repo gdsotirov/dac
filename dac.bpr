@@ -4,12 +4,12 @@
   <MACROS>
     <VERSION value="BCB.06.00"/>
     <PROJECT value="dnd.exe"/>
-    <OBJFILES value="dnd.obj mainform.obj enter_data.obj about.obj func.obj"/>
+    <OBJFILES value="dnd.obj mainform.obj enter_data.obj about.obj func.obj enter_n.obj"/>
     <RESFILES value="dnd.res"/>
     <IDLFILES value=""/>
     <IDLGENFILES value=""/>
     <DEFFILE value=""/>
-    <RESDEPEN value="$(RESFILES) mainform.dfm enter_data.dfm about.dfm"/>
+    <RESDEPEN value="$(RESFILES) mainform.dfm enter_data.dfm about.dfm enter_n.dfm"/>
     <LIBFILES value=""/>
     <LIBRARIES value=""/>
     <SPARELIBS value="vcl.lib rtl.lib tee.lib"/>
@@ -60,6 +60,7 @@
       <FILE FILENAME="enter_data.cpp" FORMNAME="EnterData" UNITNAME="enter_data" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="about.cpp" FORMNAME="AboutBox" UNITNAME="about" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
       <FILE FILENAME="func.c" FORMNAME="" UNITNAME="func" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
+      <FILE FILENAME="enter_n.cpp" FORMNAME="EnterN" UNITNAME="enter_n" CONTAINERID="CCompiler" DESIGNCLASS="" LOCALCOMMAND=""/>
   </FILELIST>
   <BUILDTOOLS>
   </BUILDTOOLS>

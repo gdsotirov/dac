@@ -33,9 +33,9 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 408
-    ActivePage = TabSheet1
+    ActivePage = TabSheet3
     Anchors = [akLeft, akTop, akRight, akBottom]
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 1
     object TabSheet1: TTabSheet
       Caption = 'Amplitude Distribution'

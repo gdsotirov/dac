@@ -22,11 +22,11 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.6 2005/06/08 17:09:17 gsotirov Exp $
  */
 
 #include <vcl.h>
-#include <math.h>
+#include <cmath>
 
 #include "mainform.h"
 #include "enter_data.h"
@@ -91,6 +91,7 @@ void TMainForm::CalculateAndPresentate(void) {
   D = 1.47 * (l1/(2*tita_05_rad));
   line.sprintf("D = %f m", D);
   REResults->Lines->Add(line);
+  Lbl_D->Caption = line.sprintf("D = %1.2f m", D);
 
   unsigned int i = 0;
   p = 1;
@@ -109,9 +110,12 @@ void TMainForm::CalculateAndPresentate(void) {
   f = ceil(n) * l0;
   line.sprintf("f = %f m", f);
   REResults->Lines->Add(line);
+  Lbl_f->Caption = line.sprintf("f = %1.2f m", f);
+
   double psi_0 = 2 * rad2deg(atan((D/2)/2*f));
   line.sprintf("psi 0 = %f deg", psi_0);
   REResults->Lines->Add(line);
+  Lbl_Psi0->Caption = line.sprintf("psi 0 = %1.2f deg", psi_0);
 
   double step = 0.5*D/10;
   for ( int i = 0; i <= 10; ++i ) {
@@ -156,10 +160,12 @@ void TMainForm::CalculateAndPresentate(void) {
      }
    }
 
-   line.sprintf("Beamer parameters:");
+   REResults->Lines->Add("");
+   line.sprintf("Feeder parameters:");
    REResults->Lines->Add(line);
 
-   Pages->ActivePage = TabSheet3;
+   Pages->ActivePage = TS_ADC;
+   PagesChange(this);
    EnterN = new TEnterN(this);
    EnterN->ShowModal();
 
@@ -175,14 +181,38 @@ void TMainForm::CalculateAndPresentate(void) {
    double R = (Dr*Dr)/(2.4 * l0) - 0.15 * l0;
    line.sprintf("R = %f m", R);
    REResults->Lines->Add(line);
+   Lbl_R->Caption = line.sprintf("R = %1.2f m", R);
 
-   double G_db = 10 * log10(5 * pow(Dr/l0, 2));
-   line.sprintf("G = %d dB", G_db);
+   double G = 5 * pow(Dr/l0, 2);
+   double G_db = 10 * log10(G);
+   line.sprintf("G = %1.1f dB", G_db);
+   REResults->Lines->Add(line);
+
+   double pcalc = G / (4 * M_PI * f); /* precalculated value */
+   double p1 = l1 * pcalc;
+   double p0 = l0 * pcalc;
+   double p2 = l2 * pcalc;
+   line.sprintf("p1 = %f", p1);
+   REResults->Lines->Add(line);
+   line.sprintf("p0 = %f", p0);
+   REResults->Lines->Add(line);
+   line.sprintf("p2 = %f", p2);
+   REResults->Lines->Add(line);
+
+   double kbv1 = (1 - p1) / (1 + p1);
+   double kbv0 = (1 - p0) / (1 + p0);
+   double kbv2 = (1 - p2) / (1 + p2);
+   line.sprintf("kbv1 = %f", kbv1);
+   REResults->Lines->Add(line);
+   line.sprintf("kbv0 = %f", kbv0);
+   REResults->Lines->Add(line);
+   line.sprintf("kbv2 = %f", kbv2);
    REResults->Lines->Add(line);
 }
 
 void __fastcall TMainForm::FormShow(TObject *) {
-  Pages->ActivePage = TabSheet1;
+  Pages->ActivePage = TS_AD;
+  PagesChange(this);
 }
 
 void __fastcall TMainForm::CB_L0Click(TObject *) {
@@ -202,5 +232,9 @@ void __fastcall TMainForm::OnDataChange(TMessage & Message) {
     ClearPresentation();
     CalculateAndPresentate();
   }
+}
+
+void __fastcall TMainForm::PagesChange(TObject *) {
+  MainForm->Caption = "DND - " + Pages->ActivePage->Caption;
 }
 

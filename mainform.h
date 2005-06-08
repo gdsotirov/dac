@@ -22,7 +22,7 @@
  * File: mainform.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.h,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
+ * $Id: mainform.h,v 1.6 2005/06/08 17:09:17 gsotirov Exp $
  */
 
 #ifndef MainFormH
@@ -39,6 +39,7 @@
 #include <TeEngine.hpp>
 #include <TeeProcs.hpp>
 #include <Series.hpp>
+#include <Graphics.hpp>
 
 #define MSG_DATACHANGE (WM_APP + 100)
 
@@ -56,16 +57,16 @@ __published: // IDE-managed Components
   TMenuItem *HelpAbout;
   TStatusBar *StatusBar;
   TPageControl *Pages;
-  TTabSheet *TabSheet1;
-  TTabSheet *TabSheet2;
-  TTabSheet *TabSheet3;
-  TTabSheet *TabSheet4;
+        TTabSheet *TS_AD;
+        TTabSheet *TS_PD;
+        TTabSheet *TS_ADC;
+        TTabSheet *TS_DND;
   TChart *ChartAD;
   TChart *ChartADC;
   TChart *ChartDND;
   TChart *ChartPD;
   TLineSeries *Series1;
-  TTabSheet *TabSheet5;
+        TTabSheet *TS_Results;
   TRichEdit *REResults;
   TLineSeries *Series2;
   TLineSeries *Series3;
@@ -82,6 +83,14 @@ __published: // IDE-managed Components
         TCheckBox *CB_L0;
         TCheckBox *CB_L1;
         TCheckBox *CB_L2;
+        TTabSheet *TS_ADraw;
+        TImage *Image1;
+        TLabel *Lbl_D;
+        TLabel *Lbl_R;
+        TLabel *Lbl_f;
+        TLabel *Lbl_Psi0;
+        TTabSheet *TS_FDraw;
+        TImage *Image2;
   void __fastcall FileExitClick(TObject *Sender);
   void __fastcall EditEnterDataClick(TObject *Sender);
   void __fastcall HelpAboutClick(TObject *Sender);
@@ -90,6 +99,7 @@ __published: // IDE-managed Components
   void __fastcall CB_L0Click(TObject *Sender);
   void __fastcall CB_L1Click(TObject *Sender);
   void __fastcall CB_L2Click(TObject *Sender);
+        void __fastcall PagesChange(TObject *Sender);
 private:
   // Input parameters
   double f1_min;

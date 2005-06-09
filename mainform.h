@@ -22,7 +22,7 @@
  * File: mainform.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.h,v 1.6 2005/06/08 17:09:17 gsotirov Exp $
+ * $Id: mainform.h,v 1.7 2005/06/09 18:23:13 gsotirov Exp $
  */
 
 #ifndef MainFormH
@@ -42,6 +42,7 @@
 #include <Graphics.hpp>
 
 #define MSG_DATACHANGE (WM_APP + 100)
+#define PROGNAME "DND"
 
 const double b_tbl[] = {-24.6, -30.6, -38.2};
 const long b_tbl_len = 3;
@@ -57,16 +58,16 @@ __published: // IDE-managed Components
   TMenuItem *HelpAbout;
   TStatusBar *StatusBar;
   TPageControl *Pages;
-        TTabSheet *TS_AD;
-        TTabSheet *TS_PD;
-        TTabSheet *TS_ADC;
-        TTabSheet *TS_DND;
+  TTabSheet *TS_AD;
+  TTabSheet *TS_PD;
+  TTabSheet *TS_ADC;
+  TTabSheet *TS_DND;
   TChart *ChartAD;
   TChart *ChartADC;
   TChart *ChartDND;
   TChart *ChartPD;
   TLineSeries *Series1;
-        TTabSheet *TS_Results;
+  TTabSheet *TS_Results;
   TRichEdit *REResults;
   TLineSeries *Series2;
   TLineSeries *Series3;
@@ -80,17 +81,22 @@ __published: // IDE-managed Components
   TLineSeries *Series11;
   TLineSeries *Series12;
   TLineSeries *Series13;
-        TCheckBox *CB_L0;
-        TCheckBox *CB_L1;
-        TCheckBox *CB_L2;
-        TTabSheet *TS_ADraw;
-        TImage *Image1;
-        TLabel *Lbl_D;
-        TLabel *Lbl_R;
-        TLabel *Lbl_f;
-        TLabel *Lbl_Psi0;
+  TCheckBox *CB_L0;
+  TCheckBox *CB_L1;
+  TCheckBox *CB_L2;
+  TTabSheet *TS_ADraw;
+        TImage *ImgAntenna;
+  TLabel *Lbl_D;
+  TLabel *Lbl_R;
+  TLabel *Lbl_f;
+  TLabel *Lbl_Psi0;
+        TTabSheet *TS_TDraw;
+        TImage *ImgTolerances;
+        TScrollBar *SB_Tlrnce;
+        TLabel *Label1;
         TTabSheet *TS_FDraw;
-        TImage *Image2;
+        TImage *Image1;
+        TLabel *Label2;
   void __fastcall FileExitClick(TObject *Sender);
   void __fastcall EditEnterDataClick(TObject *Sender);
   void __fastcall HelpAboutClick(TObject *Sender);
@@ -99,7 +105,10 @@ __published: // IDE-managed Components
   void __fastcall CB_L0Click(TObject *Sender);
   void __fastcall CB_L1Click(TObject *Sender);
   void __fastcall CB_L2Click(TObject *Sender);
-        void __fastcall PagesChange(TObject *Sender);
+  void __fastcall PagesChange(TObject *Sender);
+        void __fastcall SB_TlrnceScroll(TObject *Sender,
+          TScrollCode ScrollCode, int &ScrollPos);
+        void __fastcall TS_TDrawShow(TObject *Sender);
 private:
   // Input parameters
   double f1_min;

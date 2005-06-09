@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.6 2005/06/08 17:09:17 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.7 2005/06/09 18:23:13 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -208,6 +208,11 @@ void TMainForm::CalculateAndPresentate(void) {
    REResults->Lines->Add(line);
    line.sprintf("kbv2 = %f", kbv2);
    REResults->Lines->Add(line);
+
+   // Calculate limits
+   double delta_a1 = l2 / 16;
+   double delta_a2 = l2 / (4 * (1 - cos(psi_0)));
+   double delta_a3 = l2 * f / (4 * R);
 }
 
 void __fastcall TMainForm::FormShow(TObject *) {
@@ -235,6 +240,20 @@ void __fastcall TMainForm::OnDataChange(TMessage & Message) {
 }
 
 void __fastcall TMainForm::PagesChange(TObject *) {
-  MainForm->Caption = "DND - " + Pages->ActivePage->Caption;
+  AnsiString title;
+  title.sprintf("%s - %s", PROGNAME, Pages->ActivePage->Caption.c_str());
+  MainForm->Caption = title;
+}
+
+void __fastcall TMainForm::SB_TlrnceScroll(TObject *, TScrollCode, int &ScrollPos) {
+  static int orig_pos = ImgTolerances->Top;
+
+  int step = (ImgTolerances->Height - (TS_TDraw->Height - 8)) / (SB_Tlrnce->Max - SB_Tlrnce->Min);
+  ImgTolerances->Top = orig_pos - ScrollPos * step;
+}
+
+void __fastcall TMainForm::TS_TDrawShow(TObject *) {
+  int pos = SB_Tlrnce->Position;
+  SB_TlrnceScroll(this, scTrack, pos);
 }
 

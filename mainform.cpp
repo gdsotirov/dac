@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.7 2005/06/09 18:23:13 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.8 2005/06/10 19:07:39 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -82,16 +82,18 @@ void TMainForm::CalculateAndPresentate(void) {
   REResults->Lines->Add(line);
   tita_05 = sqrt(8500/Gmax);
   tita_05_rad = deg2rad(tita_05);
-  line.sprintf("tita 05 = %f deg = %f rad", tita_05, tita_05_rad);
+  line.sprintf("tita 05 = %f ° = %f rad", tita_05, tita_05_rad);
   REResults->Lines->Add(line);
   l1 = M_C / f1_min;
   l2 = M_C / f1_max;
   l0 = M_C / ((f1_min + f1_max) / 2);
   // Calculate the diameter
   D = 1.47 * (l1/(2*tita_05_rad));
+  double R = D / 2;
   line.sprintf("D = %f m", D);
   REResults->Lines->Add(line);
   Lbl_D->Caption = line.sprintf("D = %1.2f m", D);
+  Lbl_R->Caption = line.sprintf("R = %1.2f m", R);
 
   unsigned int i = 0;
   p = 1;
@@ -112,10 +114,10 @@ void TMainForm::CalculateAndPresentate(void) {
   REResults->Lines->Add(line);
   Lbl_f->Caption = line.sprintf("f = %1.2f m", f);
 
-  double psi_0 = 2 * rad2deg(atan((D/2)/2*f));
-  line.sprintf("psi 0 = %f deg", psi_0);
+  double psi_0 = 2 * rad2deg(atan(R/(2*f)));
+  line.sprintf("psi 0 = %f °", psi_0);
   REResults->Lines->Add(line);
-  Lbl_Psi0->Caption = line.sprintf("psi 0 = %1.2f deg", psi_0);
+  Lbl_Psi0->Caption = line.sprintf("psi 0 = %1.2f °", psi_0);
 
   double step = 0.5*D/10;
   for ( int i = 0; i <= 10; ++i ) {
@@ -157,62 +159,74 @@ void TMainForm::CalculateAndPresentate(void) {
 
       lbl.sprintf("%1.2f", tita);
        ChartDND->Series[i]->AddXY(U, y, lbl);
-     }
-   }
+    }
+  }
 
-   REResults->Lines->Add("");
-   line.sprintf("Feeder parameters:");
-   REResults->Lines->Add(line);
+  REResults->Lines->Add("");
+  line.sprintf("Feeder parameters:");
+  REResults->Lines->Add(line);
 
-   Pages->ActivePage = TS_ADC;
-   PagesChange(this);
-   EnterN = new TEnterN(this);
-   EnterN->ShowModal();
+  Pages->ActivePage = TS_ADC;
+  PagesChange(this);
+  EnterN = new TEnterN(this);
+  EnterN->ShowModal();
 
-   double psi_07 = acos(pow(0.707, 1/(double)get_n()));
-   double psi_07_deg = rad2deg(psi_07);
-   line.sprintf("psi 07 = %f rad = %f deg", psi_07, psi_07_deg);
-   REResults->Lines->Add(line);
+  double psi_07 = acos(pow(0.707, 1/(double)get_n()));
+  double psi_07_deg = rad2deg(psi_07);
+  line.sprintf("psi 07 = %f rad = %f °", psi_07, psi_07_deg);
+  REResults->Lines->Add(line);
 
-   double Dr = 60 * l0/psi_07_deg;
-   line.sprintf("D rupor = %f m", Dr);
-   REResults->Lines->Add(line);
+  double Dr = 60 * l0/psi_07_deg;
+  line.sprintf("D rupor = %f m", Dr);
+  REResults->Lines->Add(line);
+  Lbl_Dr->Caption = line.sprintf("Dr = %1.2f m", Dr);
 
-   double R = (Dr*Dr)/(2.4 * l0) - 0.15 * l0;
-   line.sprintf("R = %f m", R);
-   REResults->Lines->Add(line);
-   Lbl_R->Caption = line.sprintf("R = %1.2f m", R);
+  double Rr = (Dr*Dr)/(2.4 * l0) - 0.15 * l0;
+  line.sprintf("Rr = %f m", Rr);
+  REResults->Lines->Add(line);
+  Lbl_FR->Caption = line.sprintf("Rr = %1.2f m", Rr);
 
-   double G = 5 * pow(Dr/l0, 2);
-   double G_db = 10 * log10(G);
-   line.sprintf("G = %1.1f dB", G_db);
-   REResults->Lines->Add(line);
+  double G = 5 * pow(Dr/l0, 2);
+  double G_db = 10 * log10(G);
+  line.sprintf("G = %1.1f dB", G_db);
+  REResults->Lines->Add(line);
 
-   double pcalc = G / (4 * M_PI * f); /* precalculated value */
-   double p1 = l1 * pcalc;
-   double p0 = l0 * pcalc;
-   double p2 = l2 * pcalc;
-   line.sprintf("p1 = %f", p1);
-   REResults->Lines->Add(line);
-   line.sprintf("p0 = %f", p0);
-   REResults->Lines->Add(line);
-   line.sprintf("p2 = %f", p2);
-   REResults->Lines->Add(line);
+  double pcalc = G / (4 * M_PI * f); /* precalculated value */
+  double p1 = l1 * pcalc;
+  double p0 = l0 * pcalc;
+  double p2 = l2 * pcalc;
+  line.sprintf("p1 = %f", p1);
+  REResults->Lines->Add(line);
+  line.sprintf("p0 = %f", p0);
+  REResults->Lines->Add(line);
+  line.sprintf("p2 = %f", p2);
+  REResults->Lines->Add(line);
 
-   double kbv1 = (1 - p1) / (1 + p1);
-   double kbv0 = (1 - p0) / (1 + p0);
-   double kbv2 = (1 - p2) / (1 + p2);
-   line.sprintf("kbv1 = %f", kbv1);
-   REResults->Lines->Add(line);
-   line.sprintf("kbv0 = %f", kbv0);
-   REResults->Lines->Add(line);
-   line.sprintf("kbv2 = %f", kbv2);
-   REResults->Lines->Add(line);
+  double kbv1 = (1 - p1) / (1 + p1);
+  double kbv0 = (1 - p0) / (1 + p0);
+  double kbv2 = (1 - p2) / (1 + p2);
+  line.sprintf("kbv1 = %f", kbv1);
+  REResults->Lines->Add(line);
+  line.sprintf("kbv0 = %f", kbv0);
+  REResults->Lines->Add(line);
+  line.sprintf("kbv2 = %f", kbv2);
+  REResults->Lines->Add(line);
 
    // Calculate limits
-   double delta_a1 = l2 / 16;
-   double delta_a2 = l2 / (4 * (1 - cos(psi_0)));
-   double delta_a3 = l2 * f / (4 * R);
+  REResults->Lines->Add("");
+  REResults->Lines->Add("Tolerances:");  
+  double delta_a1 = l2 / 16;
+  line.sprintf("Delta a1 <= ± %1.5f", delta_a1);
+  REResults->Lines->Add(line);
+  Lbl_Da1->Caption = line;
+  double delta_a2 = l2 / (4 * (1 - cos(deg2rad(psi_0))));
+  line.sprintf("Delta a2 <= ± %1.5f", delta_a2);
+  REResults->Lines->Add(line);
+  Lbl_Da2->Caption = line;
+  double delta_a3 = (l2 * f) / (4 * R) * (4 * pow(f, 2)/pow(R, 2) - 1);
+  line.sprintf("Delta a3 <= ± %1.5f", delta_a3);
+  REResults->Lines->Add(line);
+  Lbl_Da3->Caption = line;
 }
 
 void __fastcall TMainForm::FormShow(TObject *) {

@@ -22,7 +22,7 @@
  * File: mainform.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.h,v 1.7 2005/06/09 18:23:13 gsotirov Exp $
+ * $Id: mainform.h,v 1.8 2005/06/10 19:07:39 gsotirov Exp $
  */
 
 #ifndef MainFormH
@@ -85,18 +85,22 @@ __published: // IDE-managed Components
   TCheckBox *CB_L1;
   TCheckBox *CB_L2;
   TTabSheet *TS_ADraw;
-        TImage *ImgAntenna;
+  TImage *ImgAntenna;
   TLabel *Lbl_D;
   TLabel *Lbl_R;
   TLabel *Lbl_f;
   TLabel *Lbl_Psi0;
-        TTabSheet *TS_TDraw;
-        TImage *ImgTolerances;
-        TScrollBar *SB_Tlrnce;
-        TLabel *Label1;
-        TTabSheet *TS_FDraw;
-        TImage *Image1;
-        TLabel *Label2;
+  TTabSheet *TS_TDraw;
+  TImage *ImgTolerances;
+  TScrollBar *SB_Tlrnce;
+  TLabel *Lbl_Da1;
+  TTabSheet *TS_FDraw;
+  TImage *Image1;
+  TLabel *Lbl_Da2;
+  TLabel *Lbl_Fd;
+  TLabel *Lbl_FR;
+  TLabel *Lbl_Dr;
+  TLabel *Lbl_Da3;
   void __fastcall FileExitClick(TObject *Sender);
   void __fastcall EditEnterDataClick(TObject *Sender);
   void __fastcall HelpAboutClick(TObject *Sender);
@@ -106,9 +110,8 @@ __published: // IDE-managed Components
   void __fastcall CB_L1Click(TObject *Sender);
   void __fastcall CB_L2Click(TObject *Sender);
   void __fastcall PagesChange(TObject *Sender);
-        void __fastcall SB_TlrnceScroll(TObject *Sender,
-          TScrollCode ScrollCode, int &ScrollPos);
-        void __fastcall TS_TDrawShow(TObject *Sender);
+  void __fastcall SB_TlrnceScroll(TObject *Sender, TScrollCode ScrollCode, int &ScrollPos);
+  void __fastcall TS_TDrawShow(TObject *Sender);
 private:
   // Input parameters
   double f1_min;

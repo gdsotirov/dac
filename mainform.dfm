@@ -1,9 +1,8 @@
 object MainForm: TMainForm
-  Left = 241
-  Top = 176
+  Left = 212
+  Top = 348
   Width = 640
   Height = 480
-  Caption = 'DND'
   Color = clBtnFace
   Constraints.MinHeight = 480
   Constraints.MinWidth = 640
@@ -12,6 +11,31 @@ object MainForm: TMainForm
   Font.Height = -11
   Font.Name = 'MS Sans Serif'
   Font.Style = []
+  Icon.Data = {
+    0000010001002020100000000000E80200001600000028000000200000004000
+    0000010004000000000080020000000000000000000000000000000000000000
+    000000008000008000000080800080000000800080008080000080808000C0C0
+    C0000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF004444
+    444444444444444444444444444444F44444444444444F444444444400444444
+    44444F4444444444444000000444444444444444444444400008888044444444
+    4F44444444440008888888074444444444444444440088888888804744444444
+    444444440088888888880447444F444444444400888888888880444744444444
+    444440888888888888044447444444F444440888888888888044444744444444
+    4440888888888888044444474444444444408888888888804444F44474444444
+    4408888888888804444444447444444444088888888880444444444474444444
+    408888888888044F44444444744F444440888888888044444444444474444444
+    088888888880744444444F447444444408888888880447444444444474444444
+    0888888880444474444444447444444088888888044444474444444474444440
+    8888888044444444744444447444444088888804444444444744444474444F40
+    8888804444444444447444447444440888880444444444444447444447444408
+    8880444444444444444474444744440888044444444F44444444474447444408
+    804444444444444444F444744744440804444444444444444444444887444080
+    0777777777774444444444488744400444444444444477777777777777444044
+    444444444444444444444444444444444444F444444444444444444444440000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    000000000000000000000000000000000000000000000000000000000000}
   Menu = MainMenu
   OldCreateOrder = False
   Position = poDefaultPosOnly
@@ -35,9 +59,9 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 409
-    ActivePage = TS_TDraw
+    ActivePage = TS_PD
     Anchors = [akLeft, akTop, akRight, akBottom]
-    TabIndex = 7
+    TabIndex = 1
     TabOrder = 1
     OnChange = PagesChange
     object TS_AD: TTabSheet
@@ -300,9 +324,9 @@ object MainForm: TMainForm
         381)
       object ChartDND: TChart
         Left = 0
-        Top = 24
+        Top = 32
         Width = 617
-        Height = 357
+        Height = 353
         AnimatedZoom = True
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
@@ -370,7 +394,7 @@ object MainForm: TMainForm
       end
       object CB_L0: TCheckBox
         Left = 16
-        Top = 4
+        Top = 7
         Width = 109
         Height = 17
         Caption = 'Show Lambda 0'
@@ -381,7 +405,7 @@ object MainForm: TMainForm
       end
       object CB_L1: TCheckBox
         Left = 140
-        Top = 4
+        Top = 7
         Width = 109
         Height = 17
         Caption = 'Show Lambda 1'
@@ -392,7 +416,7 @@ object MainForm: TMainForm
       end
       object CB_L2: TCheckBox
         Left = 264
-        Top = 4
+        Top = 7
         Width = 109
         Height = 17
         Caption = 'Show Lambda 2'
@@ -400,6 +424,87 @@ object MainForm: TMainForm
         State = cbChecked
         TabOrder = 3
         OnClick = CB_L2Click
+      end
+      object CB_ShowDB: TCheckBox
+        Left = 388
+        Top = 7
+        Width = 113
+        Height = 17
+        Caption = 'Show values in dB'
+        TabOrder = 4
+        OnClick = CB_ShowDBClick
+      end
+      object ChartDND_dB: TChart
+        Left = 0
+        Top = 28
+        Width = 617
+        Height = 353
+        AnimatedZoom = True
+        BackWall.Brush.Color = clWhite
+        BackWall.Brush.Style = bsClear
+        MarginTop = 5
+        Title.Text.Strings = (
+          'D.N.D.')
+        LeftAxis.LabelStyle = talValue
+        LeftAxis.Title.Caption = 'dB'
+        Legend.LegendStyle = lsSeries
+        View3D = False
+        View3DWalls = False
+        BevelOuter = bvNone
+        TabOrder = 5
+        Visible = False
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        object LineSeries1: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          SeriesColor = clRed
+          Title = 'Lambda 0'
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1
+          YValues.Order = loNone
+        end
+        object LineSeries2: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          SeriesColor = clGreen
+          Title = 'Lambda 1'
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1
+          YValues.Order = loNone
+        end
+        object LineSeries3: TLineSeries
+          Marks.ArrowLength = 8
+          Marks.Visible = False
+          SeriesColor = clBlue
+          Title = 'Lambda 2'
+          Pointer.InflateMargins = True
+          Pointer.Style = psRectangle
+          Pointer.Visible = False
+          XValues.DateTime = False
+          XValues.Name = 'X'
+          XValues.Multiplier = 1
+          XValues.Order = loAscending
+          YValues.DateTime = False
+          YValues.Name = 'Y'
+          YValues.Multiplier = 1
+          YValues.Order = loNone
+        end
       end
     end
     object TS_Results: TTabSheet
@@ -2875,7 +2980,7 @@ object MainForm: TMainForm
         Transparent = True
       end
       object Lbl_Da2: TLabel
-        Left = 388
+        Left = 372
         Top = 196
         Width = 60
         Height = 13

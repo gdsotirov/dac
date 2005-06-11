@@ -1,4 +1,4 @@
-/* DND - a D.N.D. grapher utility
+/* DAC - Dish Antenna Calculator
  * Copyright (C) 2005 Georgi D. Sotirov, Boayn D. Sotirov
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.8 2005/06/10 19:07:39 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.9 2005/06/11 18:42:13 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -38,7 +38,7 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 
-TMainForm *MainForm;
+TMainForm * MainForm;
 
 __fastcall TMainForm::TMainForm(TComponent * Owner) : p(1), TForm(Owner) {
 
@@ -50,7 +50,6 @@ void __fastcall TMainForm::FileExitClick(TObject *) {
 }
 
 void __fastcall TMainForm::EditEnterDataClick(TObject *) {
-  EnterData = new TEnterData(this);
   EnterData->ShowModal();
 }
 
@@ -97,8 +96,10 @@ void TMainForm::CalculateAndPresentate(void) {
 
   unsigned int i = 0;
   p = 1;
-  while ( bi <= b_tbl[i] && i < b_tbl_len ) {
+  while ( bi <= b_tbl[i] ) {
     p += 1;
+    if ( p == b_tbl_len )
+      break;
     ++i;
   }
 
@@ -158,7 +159,8 @@ void TMainForm::CalculateAndPresentate(void) {
       tita += step;
 
       lbl.sprintf("%1.2f", tita);
-       ChartDND->Series[i]->AddXY(U, y, lbl);
+      ChartDND->Series[i]->AddXY(U, y, lbl);
+      ChartDND_dB->Series[i]->AddXY(U, 10 * log10(y), lbl);
     }
   }
 
@@ -168,7 +170,6 @@ void TMainForm::CalculateAndPresentate(void) {
 
   Pages->ActivePage = TS_ADC;
   PagesChange(this);
-  EnterN = new TEnterN(this);
   EnterN->ShowModal();
 
   double psi_07 = acos(pow(0.707, 1/(double)get_n()));
@@ -216,34 +217,46 @@ void TMainForm::CalculateAndPresentate(void) {
   REResults->Lines->Add("");
   REResults->Lines->Add("Tolerances:");  
   double delta_a1 = l2 / 16;
-  line.sprintf("Delta a1 <= ± %1.5f", delta_a1);
+  line.sprintf("Delta a1 <= ± %1.5f m", delta_a1);
   REResults->Lines->Add(line);
   Lbl_Da1->Caption = line;
   double delta_a2 = l2 / (4 * (1 - cos(deg2rad(psi_0))));
-  line.sprintf("Delta a2 <= ± %1.5f", delta_a2);
+  line.sprintf("Delta a2 <= ± %1.5f m", delta_a2);
   REResults->Lines->Add(line);
   Lbl_Da2->Caption = line;
   double delta_a3 = (l2 * f) / (4 * R) * (4 * pow(f, 2)/pow(R, 2) - 1);
-  line.sprintf("Delta a3 <= ± %1.5f", delta_a3);
+  line.sprintf("Delta a3 <= ± %1.5f m", delta_a3);
   REResults->Lines->Add(line);
   Lbl_Da3->Caption = line;
 }
 
 void __fastcall TMainForm::FormShow(TObject *) {
+  AnsiString caption;
+
+  MainForm->Caption = caption.sprintf("%s", PROGNAME);
   Pages->ActivePage = TS_AD;
   PagesChange(this);
 }
 
 void __fastcall TMainForm::CB_L0Click(TObject *) {
-  ChartDND->Series[0]->Active = CB_L0->Checked;
+  if ( CB_ShowDB->Checked )
+    ChartDND_dB->Series[0]->Active = CB_L0->Checked;
+  else
+    ChartDND->Series[0]->Active = CB_L0->Checked;
 }
 
 void __fastcall TMainForm::CB_L1Click(TObject *) {
-  ChartDND->Series[1]->Active = CB_L1->Checked;
+  if ( CB_ShowDB->Checked )
+    ChartDND_dB->Series[1]->Active = CB_L1->Checked;
+  else
+    ChartDND->Series[1]->Active = CB_L1->Checked;
 }
 
 void __fastcall TMainForm::CB_L2Click(TObject *) {
-  ChartDND->Series[2]->Active = CB_L2->Checked;
+  if ( CB_ShowDB->Checked )
+    ChartDND_dB->Series[2]->Active = CB_L2->Checked;
+  else
+    ChartDND->Series[2]->Active = CB_L2->Checked;
 }
 
 void __fastcall TMainForm::OnDataChange(TMessage & Message) {
@@ -269,5 +282,14 @@ void __fastcall TMainForm::SB_TlrnceScroll(TObject *, TScrollCode, int &ScrollPo
 void __fastcall TMainForm::TS_TDrawShow(TObject *) {
   int pos = SB_Tlrnce->Position;
   SB_TlrnceScroll(this, scTrack, pos);
+}
+
+void __fastcall TMainForm::CB_ShowDBClick(TObject *) {
+  ChartDND->Visible = !CB_ShowDB->Checked;
+  ChartDND_dB->Visible = CB_ShowDB->Checked;
+
+  CB_L0->OnClick(this);
+  CB_L1->OnClick(this);
+  CB_L2->OnClick(this);
 }
 

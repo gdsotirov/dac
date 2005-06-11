@@ -1,4 +1,4 @@
-/* DND - a D.N.D. grapher utility
+/* DAC - Dish Antenna Calculator
  * Copyright (C) 2005 Georgi D. Sotirov, Boayn D. Sotirov
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * File: mainform.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.h,v 1.8 2005/06/10 19:07:39 gsotirov Exp $
+ * $Id: mainform.h,v 1.9 2005/06/11 18:42:13 gsotirov Exp $
  */
 
 #ifndef MainFormH
@@ -40,9 +40,10 @@
 #include <TeeProcs.hpp>
 #include <Series.hpp>
 #include <Graphics.hpp>
+#include <Buttons.hpp>
 
 #define MSG_DATACHANGE (WM_APP + 100)
-#define PROGNAME "DND"
+#define PROGNAME "DAC"
 
 const double b_tbl[] = {-24.6, -30.6, -38.2};
 const long b_tbl_len = 3;
@@ -101,6 +102,11 @@ __published: // IDE-managed Components
   TLabel *Lbl_FR;
   TLabel *Lbl_Dr;
   TLabel *Lbl_Da3;
+  TCheckBox *CB_ShowDB;
+  TChart *ChartDND_dB;
+  TLineSeries *LineSeries1;
+  TLineSeries *LineSeries2;
+  TLineSeries *LineSeries3;
   void __fastcall FileExitClick(TObject *Sender);
   void __fastcall EditEnterDataClick(TObject *Sender);
   void __fastcall HelpAboutClick(TObject *Sender);
@@ -112,6 +118,7 @@ __published: // IDE-managed Components
   void __fastcall PagesChange(TObject *Sender);
   void __fastcall SB_TlrnceScroll(TObject *Sender, TScrollCode ScrollCode, int &ScrollPos);
   void __fastcall TS_TDrawShow(TObject *Sender);
+  void __fastcall CB_ShowDBClick(TObject *Sender);
 private:
   // Input parameters
   double f1_min;
@@ -176,7 +183,7 @@ public:
   void CalculateAndPresentate(void);
 };
 
-extern PACKAGE TMainForm *MainForm;
+extern PACKAGE TMainForm * MainForm;
 
 #endif
 

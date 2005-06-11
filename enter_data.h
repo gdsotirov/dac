@@ -1,4 +1,4 @@
-/* DND - a D.N.D. grapher utility
+/* DAC - Dish Antenna Calculator
  * Copyright (C) 2005 Georgi D. Sotirov, Boayn D. Sotirov
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * File: enter_data.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_data.h,v 1.4 2005/06/06 17:25:16 gsotirov Exp $
+ * $Id: enter_data.h,v 1.5 2005/06/11 18:40:10 gsotirov Exp $
  */
 
 #ifndef enter_dataH
@@ -35,31 +35,31 @@
 
 class TEnterData : public TForm {
 __published: // IDE-managed Components
-  TGroupBox *GBFreqRange;
-  TEdit *f1_min;
-  TLabel *Label1;
-  TLabel *Label2;
-  TEdit *f1_max;
-  TLabel *Label3;
-  TEdit *gmax;
-  TLabel *Label4;
-  TEdit *bi;
-  TLabel *Label5;
-  TEdit *v;
-  TButton *BtnApply;
-  TButton *BtnCancel;
-  TLabel *Label6;
-  TLabel *Label7;
-  TLabel *Label8;
-  TLabel *Label9;
-  void __fastcall BtnCancelClick(TObject *Sender);
-  void __fastcall BtnApplyClick(TObject *Sender);
-  void __fastcall FormShow(TObject *Sender);
+  TGroupBox * GBFreqRange;
+  TEdit * f1_min;
+  TLabel * Label1;
+  TLabel * Label2;
+  TEdit * f1_max;
+  TLabel * Label3;
+  TEdit * gmax;
+  TLabel * Label4;
+  TEdit * bi;
+  TLabel * Label5;
+  TEdit * v;
+  TButton * BtnApply;
+  TButton * BtnCancel;
+  TLabel * Label6;
+  TLabel * Label7;
+  TLabel * Label8;
+  TLabel * Label9;
+  void __fastcall BtnCancelClick(TObject * Sender);
+  void __fastcall BtnApplyClick(TObject * Sender);
+  void __fastcall FormShow(TObject * Sender);
 public:
-  __fastcall TEnterData(TComponent* Owner);
+  __fastcall TEnterData(TComponent * Owner);
 };
 
-extern PACKAGE TEnterData *EnterData;
+extern PACKAGE TEnterData * EnterData;
 
 #endif
 

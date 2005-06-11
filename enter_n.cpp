@@ -1,4 +1,4 @@
-/* DND - a D.N.D. grapher utility
+/* DAC - Dish Antenna Calculator
  * Copyright (C) 2005 Georgi D. Sotirov, Boayn D. Sotirov
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * File: enter_n.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_n.cpp,v 1.1 2005/06/06 19:53:43 gsotirov Exp $
+ * $Id: enter_n.cpp,v 1.2 2005/06/11 18:40:42 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -33,9 +33,9 @@
 #pragma hdrstop
 #pragma resource "*.dfm"
 
-TEnterN *EnterN;
+TEnterN * EnterN;
 
-__fastcall TEnterN::TEnterN(TComponent* AOwner) : TForm(AOwner) {
+__fastcall TEnterN::TEnterN(TComponent * AOwner) : TForm(AOwner) {
 }
 
 void __fastcall TEnterN::OKBtnClick(TObject *) {

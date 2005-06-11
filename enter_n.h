@@ -1,4 +1,4 @@
-/* DND - a D.N.D. grapher utility
+/* DAC - Dish Antenna Calculator
  * Copyright (C) 2005 Georgi D. Sotirov, Boayn D. Sotirov
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * File: enter_n.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_n.h,v 1.1 2005/06/06 19:53:43 gsotirov Exp $
+ * $Id: enter_n.h,v 1.2 2005/06/11 18:40:42 gsotirov Exp $
  */
 
 #ifndef enter_nH
@@ -41,14 +41,14 @@
 
 class TEnterN : public TForm {
 __published:        
-  TButton *OKBtn;
-  TLabel *LblHelp;
-  TLabel *LblN;
-  TEdit *EdN;
-  void __fastcall OKBtnClick(TObject *Sender);
-        void __fastcall FormShow(TObject *Sender);
+  TButton * OKBtn;
+  TLabel * LblHelp;
+  TLabel * LblN;
+  TEdit * EdN;
+  void __fastcall OKBtnClick(TObject * Sender);
+        void __fastcall FormShow(TObject * Sender);
 public:
-  virtual __fastcall TEnterN(TComponent* AOwner);
+  virtual __fastcall TEnterN(TComponent * AOwner);
 };
 
 extern PACKAGE TEnterN * EnterN;

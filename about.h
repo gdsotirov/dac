@@ -1,4 +1,4 @@
-/* DND - a D.N.D. grapher utility
+/* DAC - Dish Antenna Calculator
  * Copyright (C) 2005 Georgi D. Sotirov, Boyan D. Sotirov
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * File: about.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: about.h,v 1.4 2005/06/06 17:25:16 gsotirov Exp $
+ * $Id: about.h,v 1.5 2005/06/11 18:38:25 gsotirov Exp $
  */
 
 #ifndef aboutH
@@ -41,19 +41,19 @@
 
 class TAboutBox : public TForm {
 __published:
-  TPanel *Panel1;
-  TImage *ProgramIcon;
-  TLabel *ProductName;
-  TLabel *Version;
-  TLabel *Copyright;
-  TLabel *Comments;
-  TButton *OKButton;
-  void __fastcall OKButtonClick(TObject *Sender);
+  TPanel * Panel1;
+  TImage * ProgramIcon;
+  TLabel * ProductName;
+  TLabel * Version;
+  TLabel * Copyright;
+  TLabel * Comments;
+  TButton * OKButton;
+  void __fastcall OKButtonClick(TObject * Sender);
 public:
-  virtual __fastcall TAboutBox(TComponent* AOwner);
+  virtual __fastcall TAboutBox(TComponent * AOwner);
 };
 
-extern PACKAGE TAboutBox *AboutBox;
+extern PACKAGE TAboutBox * AboutBox;
 
 #endif
 

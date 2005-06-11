@@ -22,7 +22,7 @@
  * File: dnd.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: dac.cpp,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
+ * $Id: dac.cpp,v 1.6 2005/06/11 18:41:10 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -37,10 +37,9 @@ USEFORM("enter_n.cpp", EnterN);
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
   try {
     Application->Initialize();
-    Application->Title = "DND";
-    Application->CreateForm(__classid(TMainForm), &MainForm);
+    Application->Title = "DAC";
+                 Application->CreateForm(__classid(TMainForm), &MainForm);
                  Application->CreateForm(__classid(TEnterData), &EnterData);
-                 Application->CreateForm(__classid(TAboutBox), &AboutBox);
                  Application->CreateForm(__classid(TEnterN), &EnterN);
                  Application->Run();
   }

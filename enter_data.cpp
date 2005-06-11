@@ -1,4 +1,4 @@
-/* DND - a D.N.D. grapher utility
+/* DAC - Dish Antenna Calculator
  * Copyright (C) 2005 Georgi D. Sotirov, Boayn D. Sotirov
  *
  * This program is free software; you can redistribute it and/or
@@ -22,7 +22,7 @@
  * File: enter_data.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_data.cpp,v 1.5 2005/06/06 19:53:43 gsotirov Exp $
+ * $Id: enter_data.cpp,v 1.6 2005/06/11 18:40:28 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -36,13 +36,13 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 
-TEnterData *EnterData;
+TEnterData * EnterData;
 
 __fastcall TEnterData::TEnterData(TComponent * Owner) : TForm(Owner) {
 }
 
 void __fastcall TEnterData::BtnCancelClick(TObject *) {
-  this->Close();
+  Close();
 }
 
 void __fastcall TEnterData::BtnApplyClick(TObject *) {
@@ -95,8 +95,9 @@ void __fastcall TEnterData::BtnApplyClick(TObject *) {
   MainForm->set_bi(bi);
   MainForm->set_v(v);
 
-  SendMessage(MainForm->Handle, MSG_DATACHANGE, 0, (int)(this));
+  Hide();
   Close();
+  SendMessage(MainForm->Handle, MSG_DATACHANGE, 0, (int)(this));
 }
 
 void __fastcall TEnterData::FormShow(TObject *) {

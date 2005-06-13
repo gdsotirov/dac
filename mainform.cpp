@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.9 2005/06/11 18:42:13 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.10 2005/06/13 16:59:10 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -41,8 +41,23 @@
 TMainForm * MainForm;
 
 __fastcall TMainForm::TMainForm(TComponent * Owner) : p(1), TForm(Owner) {
-
 }
+
+void __fastcall TMainForm::FormCreate(TObject *) {
+  ImgTolerances->Tag = ImgTolerances->Top;
+  Lbl_Da1->Tag = Lbl_Da1->Top;
+  Lbl_Da2->Tag = Lbl_Da2->Top;
+  Lbl_Da3->Tag = Lbl_Da3->Top;
+}
+
+void __fastcall TMainForm::FormShow(TObject *) {
+  AnsiString caption;
+
+  MainForm->Caption = caption.sprintf("%s", PROGNAME);
+  Pages->ActivePage = TS_AD;
+  PagesChange(this);
+}
+
 void __fastcall TMainForm::FileExitClick(TObject *) {
   if ( MessageDlg("Are you sure you want to exit?", mtConfirmation, TMsgDlgButtons() << mbYes << mbNo, 0) == mrYes ) {
     this->Close();
@@ -160,7 +175,7 @@ void TMainForm::CalculateAndPresentate(void) {
 
       lbl.sprintf("%1.2f", tita);
       ChartDND->Series[i]->AddXY(U, y, lbl);
-      ChartDND_dB->Series[i]->AddXY(U, 10 * log10(y), lbl);
+      ChartDND_dB->Series[i]->AddXY(U, 20 * log10(y), lbl);
     }
   }
 
@@ -230,14 +245,6 @@ void TMainForm::CalculateAndPresentate(void) {
   Lbl_Da3->Caption = line;
 }
 
-void __fastcall TMainForm::FormShow(TObject *) {
-  AnsiString caption;
-
-  MainForm->Caption = caption.sprintf("%s", PROGNAME);
-  Pages->ActivePage = TS_AD;
-  PagesChange(this);
-}
-
 void __fastcall TMainForm::CB_L0Click(TObject *) {
   if ( CB_ShowDB->Checked )
     ChartDND_dB->Series[0]->Active = CB_L0->Checked;
@@ -273,10 +280,12 @@ void __fastcall TMainForm::PagesChange(TObject *) {
 }
 
 void __fastcall TMainForm::SB_TlrnceScroll(TObject *, TScrollCode, int &ScrollPos) {
-  static int orig_pos = ImgTolerances->Top;
-
   int step = (ImgTolerances->Height - (TS_TDraw->Height - 8)) / (SB_Tlrnce->Max - SB_Tlrnce->Min);
-  ImgTolerances->Top = orig_pos - ScrollPos * step;
+  int correction = ScrollPos * step;
+  ImgTolerances->Top = ImgTolerances->Tag - correction;
+  Lbl_Da1->Top = Lbl_Da1->Tag - correction;
+  Lbl_Da2->Top = Lbl_Da2->Tag - correction;
+  Lbl_Da3->Top = Lbl_Da3->Tag - correction;
 }
 
 void __fastcall TMainForm::TS_TDrawShow(TObject *) {
@@ -291,5 +300,17 @@ void __fastcall TMainForm::CB_ShowDBClick(TObject *) {
   CB_L0->OnClick(this);
   CB_L1->OnClick(this);
   CB_L2->OnClick(this);
+}
+
+void __fastcall TMainForm::HelpLangClick(TObject * Sender) {
+  int locale;
+
+  if ( Sender == HelpLangENG )
+    locale = LANG_ENGLISH;
+  else
+    locale = LANG_BULGARIAN;
+
+  /*if ( LoadNewResourceModule(locale) )
+    ReinitializeForms();*/
 }
 

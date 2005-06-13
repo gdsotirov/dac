@@ -22,7 +22,7 @@
  * File: mainform.h
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.h,v 1.9 2005/06/11 18:42:13 gsotirov Exp $
+ * $Id: mainform.h,v 1.10 2005/06/13 16:59:10 gsotirov Exp $
  */
 
 #ifndef MainFormH
@@ -107,6 +107,10 @@ __published: // IDE-managed Components
   TLineSeries *LineSeries1;
   TLineSeries *LineSeries2;
   TLineSeries *LineSeries3;
+  TMenuItem *HelpLang;
+  TMenuItem *HelpLangENG;
+  TMenuItem *HelpLangBG;
+  TMenuItem *N1;
   void __fastcall FileExitClick(TObject *Sender);
   void __fastcall EditEnterDataClick(TObject *Sender);
   void __fastcall HelpAboutClick(TObject *Sender);
@@ -119,6 +123,8 @@ __published: // IDE-managed Components
   void __fastcall SB_TlrnceScroll(TObject *Sender, TScrollCode ScrollCode, int &ScrollPos);
   void __fastcall TS_TDrawShow(TObject *Sender);
   void __fastcall CB_ShowDBClick(TObject *Sender);
+  void __fastcall HelpLangClick(TObject *Sender);
+  void __fastcall FormCreate(TObject *Sender);
 private:
   // Input parameters
   double f1_min;

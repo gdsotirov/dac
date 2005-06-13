@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 212
-  Top = 348
+  Left = 236
+  Top = 268
   Width = 640
   Height = 480
   Color = clBtnFace
@@ -40,6 +40,7 @@ object MainForm: TMainForm
   OldCreateOrder = False
   Position = poDefaultPosOnly
   OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
   OnShow = FormShow
   DesignSize = (
     632
@@ -59,9 +60,9 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 409
-    ActivePage = TS_PD
+    ActivePage = TS_AD
     Anchors = [akLeft, akTop, akRight, akBottom]
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     OnChange = PagesChange
     object TS_AD: TTabSheet
@@ -3007,7 +3008,6 @@ object MainForm: TMainForm
         Font.Style = [fsBold]
         ParentColor = False
         ParentFont = False
-        Transparent = True
       end
       object SB_Tlrnce: TScrollBar
         Left = 596
@@ -3038,12 +3038,32 @@ object MainForm: TMainForm
     object EditMenu: TMenuItem
       Caption = '&Edit'
       object EditEnterData: TMenuItem
-        Caption = 'Enter &data...'
+        Caption = 'Input &parameters...'
         OnClick = EditEnterDataClick
       end
     end
     object HelpMenu: TMenuItem
       Caption = '&Help'
+      object HelpLang: TMenuItem
+        Caption = '&Language'
+        object HelpLangENG: TMenuItem
+          AutoCheck = True
+          Caption = '&English'
+          GroupIndex = 1
+          RadioItem = True
+          OnClick = HelpLangClick
+        end
+        object HelpLangBG: TMenuItem
+          AutoCheck = True
+          Caption = '&Bulgarian'
+          GroupIndex = 1
+          RadioItem = True
+          OnClick = HelpLangClick
+        end
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
       object HelpAbout: TMenuItem
         Caption = '&About...'
         OnClick = HelpAboutClick

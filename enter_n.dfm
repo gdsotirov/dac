@@ -6,7 +6,11 @@ object EnterN: TEnterN
   ClientHeight = 139
   ClientWidth = 269
   Color = clBtnFace
-  ParentFont = True
+  Font.Charset = RUSSIAN_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Microsoft Sans Serif'
+  Font.Style = []
   OldCreateOrder = True
   Position = poMainFormCenter
   OnShow = FormShow

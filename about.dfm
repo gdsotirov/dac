@@ -1,15 +1,15 @@
 object AboutBox: TAboutBox
-  Left = 370
-  Top = 570
+  Left = 353
+  Top = 416
   BorderStyle = bsDialog
   Caption = 'About'
   ClientHeight = 213
-  ClientWidth = 298
+  ClientWidth = 407
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = RUSSIAN_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Microsoft Sans Serif'
   Font.Style = []
   OldCreateOrder = True
   Position = poMainFormCenter
@@ -18,7 +18,7 @@ object AboutBox: TAboutBox
   object Panel1: TPanel
     Left = 8
     Top = 8
-    Width = 281
+    Width = 389
     Height = 161
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -103,16 +103,22 @@ object AboutBox: TAboutBox
     object ProductName: TLabel
       Left = 88
       Top = 16
-      Width = 181
+      Width = 293
       Height = 13
       AutoSize = False
       Caption = 'DAC - Dish Antenna Calculator'
+      Font.Charset = RUSSIAN_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Microsoft Sans Serif'
+      Font.Style = []
+      ParentFont = False
       IsControl = True
     end
     object Version: TLabel
       Left = 88
       Top = 40
-      Width = 181
+      Width = 293
       Height = 13
       AutoSize = False
       Caption = 'Version 0.1.0'
@@ -121,7 +127,7 @@ object AboutBox: TAboutBox
     object Copyright: TLabel
       Left = 8
       Top = 80
-      Width = 256
+      Width = 373
       Height = 13
       Caption = 'Copyright (c) 2005 Georgi D. Sotirov, Boyan D. Sotirov'
       IsControl = True
@@ -129,7 +135,7 @@ object AboutBox: TAboutBox
     object Comments: TLabel
       Left = 8
       Top = 104
-      Width = 265
+      Width = 373
       Height = 49
       AutoSize = False
       Caption = 
@@ -140,7 +146,7 @@ object AboutBox: TAboutBox
     end
   end
   object OKButton: TButton
-    Left = 111
+    Left = 166
     Top = 180
     Width = 75
     Height = 25

@@ -2,14 +2,14 @@ object EnterData: TEnterData
   Left = 338
   Top = 536
   BorderStyle = bsDialog
-  Caption = 'Enter data'
+  Caption = 'Input parameters'
   ClientHeight = 253
   ClientWidth = 174
   Color = clBtnFace
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = RUSSIAN_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Microsoft Sans Serif'
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter

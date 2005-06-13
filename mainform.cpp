@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.10 2005/06/13 16:59:10 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.11 2005/06/13 19:18:14 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -280,8 +280,8 @@ void __fastcall TMainForm::PagesChange(TObject *) {
 }
 
 void __fastcall TMainForm::SB_TlrnceScroll(TObject *, TScrollCode, int &ScrollPos) {
-  int step = (ImgTolerances->Height - (TS_TDraw->Height - 8)) / (SB_Tlrnce->Max - SB_Tlrnce->Min);
-  int correction = ScrollPos * step;
+  double step = (double)(ImgTolerances->Height - TS_TDraw->Height + ImgTolerances->Tag) / (double)(SB_Tlrnce->Max - SB_Tlrnce->Min);
+  int correction = ceil(ScrollPos * step);
   ImgTolerances->Top = ImgTolerances->Tag - correction;
   Lbl_Da1->Top = Lbl_Da1->Tag - correction;
   Lbl_Da2->Top = Lbl_Da2->Tag - correction;

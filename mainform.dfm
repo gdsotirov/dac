@@ -1,15 +1,15 @@
 object MainForm: TMainForm
-  Left = 236
-  Top = 268
+  Left = 233
+  Top = 298
   Width = 640
   Height = 480
   Color = clBtnFace
   Constraints.MinHeight = 480
   Constraints.MinWidth = 640
-  Font.Charset = DEFAULT_CHARSET
+  Font.Charset = RUSSIAN_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
-  Font.Name = 'MS Sans Serif'
+  Font.Name = 'Microsoft Sans Serif'
   Font.Style = []
   Icon.Data = {
     0000010001002020100000000000E80200001600000028000000200000004000
@@ -60,9 +60,15 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 409
-    ActivePage = TS_AD
+    ActivePage = TS_DND
     Anchors = [akLeft, akTop, akRight, akBottom]
-    TabIndex = 0
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Microsoft Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabIndex = 3
     TabOrder = 1
     OnChange = PagesChange
     object TS_AD: TTabSheet
@@ -396,7 +402,7 @@ object MainForm: TMainForm
       object CB_L0: TCheckBox
         Left = 16
         Top = 7
-        Width = 109
+        Width = 137
         Height = 17
         Caption = 'Show Lambda 0'
         Checked = True
@@ -405,9 +411,9 @@ object MainForm: TMainForm
         OnClick = CB_L0Click
       end
       object CB_L1: TCheckBox
-        Left = 140
+        Left = 161
         Top = 7
-        Width = 109
+        Width = 140
         Height = 17
         Caption = 'Show Lambda 1'
         Checked = True
@@ -416,9 +422,9 @@ object MainForm: TMainForm
         OnClick = CB_L1Click
       end
       object CB_L2: TCheckBox
-        Left = 264
+        Left = 306
         Top = 7
-        Width = 109
+        Width = 139
         Height = 17
         Caption = 'Show Lambda 2'
         Checked = True
@@ -427,9 +433,9 @@ object MainForm: TMainForm
         OnClick = CB_L2Click
       end
       object CB_ShowDB: TCheckBox
-        Left = 388
+        Left = 452
         Top = 7
-        Width = 113
+        Width = 153
         Height = 17
         Caption = 'Show values in dB'
         TabOrder = 4
@@ -527,10 +533,10 @@ object MainForm: TMainForm
     end
     object TS_ADraw: TTabSheet
       Caption = 'Antenna Drawing'
-      Font.Charset = DEFAULT_CHARSET
+      Font.Charset = RUSSIAN_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
-      Font.Name = 'MS Sans Serif'
+      Font.Name = 'Microsoft Sans Serif'
       Font.Style = []
       ImageIndex = 5
       ParentFont = False
@@ -1628,7 +1634,9 @@ object MainForm: TMainForm
         Top = 8
         Width = 513
         Height = 627
+        Hint = 'Scroll up or down to see the whole image'
         AutoSize = True
+        ParentShowHint = False
         Picture.Data = {
           07544269746D6170CAA60000424DCAA60000000000003E000000280000000102
           00007302000001000100000000008CA60000C40E0000C40E0000020000000000
@@ -2965,6 +2973,7 @@ object MainForm: TMainForm
           FFFFFFFFFFFFFFFFFFFFFFFFFFFF80000000FFFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF1FFFFFFFFFFFFFFFFFFFFFFFFFFF
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF80000000}
+        ShowHint = True
       end
       object Lbl_Da1: TLabel
         Left = 76
@@ -3014,7 +3023,6 @@ object MainForm: TMainForm
         Top = 8
         Width = 16
         Height = 369
-        Hint = 'Scroll up or down to see the whole image'
         Anchors = [akTop, akRight, akBottom]
         Ctl3D = False
         Kind = sbVertical

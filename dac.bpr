@@ -36,15 +36,15 @@
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; -IC:\Temp\test_app 
-      -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG and 
+    <IDLCFLAGS value="-src_suffix cpp -D_DEBUG -I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; 
+      -IC:\Temp\test_app -I$(BCB)\include -I$(BCB)\include\vcl and 
       Settings\gsotirov\My Documents\Projects\dac -boa"/>
     <CFLAG1 value="-vGc -vGt -vGd -Od -H=$(BCB)\lib\vcl60.csm -Hc -Q -w -Vx -Ve -ff -X- -r- 
       -a8 -b- -k -y -v -vi- -c -tW -tWM"/>
     <PFLAGS value="-$YD -$W -$O- -$A8 -v -JPHNE -M"/>
     <RFLAGS value=""/>
     <AFLAGS value="/mx /w2 /zi"/>
-    <LFLAGS value="-D&quot;&quot; -aa -Tpe -x -Gn -w -v"/>
+    <LFLAGS value="-D&quot;&quot; -aa -Tpe -GD -x -Gn -w -v"/>
     <OTHERFILES value=""/>
   </OPTIONS>
   <LINKER>
@@ -80,18 +80,6 @@ Private=0
 DLL=0
 Locale=1026
 CodePage=1251
-
-[Version Info Keys]
-CompanyName=Sotirov
-FileDescription=Dish Antena Calculator
-FileVersion=0.1.0.0
-InternalName=DAC
-LegalCopyright=2005 Georgi  D. Sotirovs &amp; Boyan D. Sotirov
-LegalTrademarks=
-OriginalFilename=dac.exe
-ProductName=DAC - Dish Antenna Calculator
-ProductVersion=0.1.0.0
-?=
 
 [HistoryLists\hlIncludePath]
 Count=1
@@ -134,9 +122,19 @@ AddServerUnit=1
 AddClientUnit=1
 PrecompiledHeaders=1
 
+[Resource DLL Projects]
+Item0=Bulgarian*0x00000402*BGR*BGR
+
+[RDP Source Files]
+Item0=mainform.dfm
+Item1=enter_data.dfm
+Item2=about.dfm
+Item3=enter_n.dfm
+Item4=dac.drc
+
 [Language]
-ActiveLang=
-ProjectLang=
+ActiveLang=BGR
+ProjectLang=0x00000809
 RootDir=
   </IDEOPTIONS>
 </PROJECT>

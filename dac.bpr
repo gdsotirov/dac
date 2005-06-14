@@ -36,8 +36,8 @@
     <OTHERFILES value=""/>
   </MACROS>
   <OPTIONS>
-    <IDLCFLAGS value="-I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; -IC:\Temp\test_app 
-      -I$(BCB)\include -I$(BCB)\include\vcl -src_suffix cpp -D_DEBUG and 
+    <IDLCFLAGS value="-src_suffix cpp -D_DEBUG -I&quot;C:\Program Files\Borland\CBuilder6\Projects&quot; 
+      -IC:\Temp\test_app -I$(BCB)\include -I$(BCB)\include\vcl and 
       Settings\gsotirov\My Documents\Projects\dac -boa"/>
     <CFLAG1 value="-vGc -vGt -vGd -Od -H=$(BCB)\lib\vcl60.csm -Hc -Q -w -Vx -Ve -ff -X- -r- 
       -a8 -b- -k -y -v -vi- -c -tW -tWM"/>

@@ -60,7 +60,7 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 409
-    ActivePage = TS_DND
+    ActivePage = TS_AD
     Anchors = [akLeft, akTop, akRight, akBottom]
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -68,7 +68,7 @@ object MainForm: TMainForm
     Font.Name = 'Microsoft Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabIndex = 3
+    TabIndex = 0
     TabOrder = 1
     OnChange = PagesChange
     object TS_AD: TTabSheet
@@ -324,7 +324,7 @@ object MainForm: TMainForm
       end
     end
     object TS_DND: TTabSheet
-      Caption = 'D.N.D.'
+      Caption = 'Radiation Pattern'
       ImageIndex = 3
       DesignSize = (
         617
@@ -1634,7 +1634,7 @@ object MainForm: TMainForm
         Top = 8
         Width = 513
         Height = 627
-        Hint = 'Scroll up or down to see the whole image'
+        Hint = 'Scroll up or down to see the whole drawing'
         AutoSize = True
         ParentShowHint = False
         Picture.Data = {

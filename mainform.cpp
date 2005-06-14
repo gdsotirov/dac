@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.11 2005/06/13 19:18:14 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.12 2005/06/14 20:14:57 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -158,7 +158,7 @@ void TMainForm::CalculateAndPresentate(void) {
     double tita = step;
     while ( tita <= 90.0 ) {
       double l = 0.0;
-      double y = 0.0;
+      double y;
       AnsiString lbl;
 
       switch ( i ) {

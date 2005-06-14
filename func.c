@@ -22,7 +22,7 @@
  * File: func.c
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: func.c,v 1.2 2005/06/06 17:25:16 gsotirov Exp $
+ * $Id: func.c,v 1.3 2005/06/14 20:14:33 gsotirov Exp $
  */
 
 #include <math.h>
@@ -51,13 +51,13 @@ double rad2deg(double x) {
  * Description : Calculates the Bessel function J1(x) for any real x
  */
 double bessel_j1(double x) {
-  double ax = 0.0;
-  double z  = 0.0;
-  double xx = 0.0;
-  double y  = 0.0;
-  double ans  = 0.0;
-  double ans1 = 0.0;
-  double ans2 = 0.0;
+  double ax;
+  double z;
+  double xx;
+  double y;
+  double ans;
+  double ans1;
+  double ans2;
 
   if ( (ax = fabs(x)) < 8.0 ) { /* Direct rational approximation. */
     y = x * x;

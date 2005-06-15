@@ -22,7 +22,7 @@
  * File: mainform.cpp
  * ---
  * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.12 2005/06/14 20:14:57 gsotirov Exp $
+ * $Id: mainform.cpp,v 1.13 2005/06/15 19:48:07 gsotirov Exp $
  */
 
 #include <vcl.h>
@@ -179,8 +179,23 @@ void TMainForm::CalculateAndPresentate(void) {
     }
   }
 
+  // Calculations of direct activity
+  double Sr = (M_PI * D * D) / 4;
+  line.sprintf("Sr = %1.2f m", Sr);
+  REResults->Lines->Add(line);
+  double G0_dB = 10 * log10((4 * M_PI * Sr * get_v())/(l0*l0));
+  double G1_dB = 10 * log10((4 * M_PI * Sr * get_v())/(l1*l1));
+  double G2_dB = 10 * log10((4 * M_PI * Sr * get_v())/(l2*l2));
+  line.sprintf("G0 = %1.2f dB", G0_dB);
+  REResults->Lines->Add(line);
+  line.sprintf("G1 = %1.2f dB", G1_dB);
+  REResults->Lines->Add(line);
+  line.sprintf("G2 = %1.2f dB", G2_dB);
+  REResults->Lines->Add(line);
+
+
   REResults->Lines->Add("");
-  line.sprintf("Feeder parameters:");
+  line.sprintf("Feedhorn parameters:");
   REResults->Lines->Add(line);
 
   Pages->ActivePage = TS_ADC;

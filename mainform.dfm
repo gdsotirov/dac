@@ -60,7 +60,7 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 409
-    ActivePage = TS_Results
+    ActivePage = TS_TDraw
     Anchors = [akLeft, akTop, akRight, akBottom]
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -68,7 +68,7 @@ object MainForm: TMainForm
     Font.Name = 'Microsoft Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabIndex = 4
+    TabIndex = 7
     TabOrder = 1
     OnChange = PagesChange
     object TS_AD: TTabSheet
@@ -345,7 +345,7 @@ object MainForm: TMainForm
         View3D = False
         View3DWalls = False
         BevelOuter = bvNone
-        TabOrder = 0
+        TabOrder = 4
         Anchors = [akLeft, akTop, akRight, akBottom]
         object Series11: TLineSeries
           Marks.ArrowLength = 8
@@ -407,7 +407,7 @@ object MainForm: TMainForm
         Caption = 'Show Lambda 0'
         Checked = True
         State = cbChecked
-        TabOrder = 1
+        TabOrder = 0
         OnClick = CB_L0Click
       end
       object CB_L1: TCheckBox
@@ -418,7 +418,7 @@ object MainForm: TMainForm
         Caption = 'Show Lambda 1'
         Checked = True
         State = cbChecked
-        TabOrder = 2
+        TabOrder = 1
         OnClick = CB_L1Click
       end
       object CB_L2: TCheckBox
@@ -429,7 +429,7 @@ object MainForm: TMainForm
         Caption = 'Show Lambda 2'
         Checked = True
         State = cbChecked
-        TabOrder = 3
+        TabOrder = 2
         OnClick = CB_L2Click
       end
       object CB_ShowDB: TCheckBox
@@ -438,7 +438,7 @@ object MainForm: TMainForm
         Width = 153
         Height = 17
         Caption = 'Show values in dB'
-        TabOrder = 4
+        TabOrder = 3
         OnClick = CB_ShowDBClick
       end
       object ChartDND_dB: TChart

@@ -60,7 +60,7 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 409
-    ActivePage = TS_AD
+    ActivePage = TS_Results
     Anchors = [akLeft, akTop, akRight, akBottom]
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -68,7 +68,7 @@ object MainForm: TMainForm
     Font.Name = 'Microsoft Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabIndex = 0
+    TabIndex = 4
     TabOrder = 1
     OnChange = PagesChange
     object TS_AD: TTabSheet
@@ -79,8 +79,8 @@ object MainForm: TMainForm
       object ChartAD: TChart
         Left = 0
         Top = 4
-        Width = 617
-        Height = 377
+        Width = 605
+        Height = 365
         AnimatedZoom = True
         BackWall.Brush.Color = clWhite
         BackWall.Brush.Style = bsClear
@@ -528,6 +528,7 @@ object MainForm: TMainForm
         Anchors = [akLeft, akTop, akRight, akBottom]
         BorderStyle = bsNone
         ReadOnly = True
+        ScrollBars = ssBoth
         TabOrder = 0
       end
     end
@@ -1239,7 +1240,7 @@ object MainForm: TMainForm
       end
     end
     object TS_FDraw: TTabSheet
-      Caption = 'Feeder Drawing'
+      Caption = 'Feedhorn Drawing'
       ImageIndex = 7
       object Image1: TImage
         Left = 8
@@ -2981,7 +2982,7 @@ object MainForm: TMainForm
         Width = 59
         Height = 13
         Caption = 'Delta a1 ='
-        Font.Charset = GREEK_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Microsoft Sans Serif'

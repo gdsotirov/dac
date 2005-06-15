@@ -137,6 +137,11 @@ PrecompiledHeaders=1
 [Resource DLL Projects]
 Item0=Bulgarian*0x00000402*BGR*BGR
 
+[Misc Files]
+Item0=enter_data.cpp*&lt;unknown&gt;
+Item1=enter_n.cpp*&lt;unknown&gt;
+Item2=mainform.cpp*&lt;unknown&gt;
+
 [RDP Source Files]
 Item0=mainform.dfm
 Item1=enter_data.dfm

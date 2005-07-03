@@ -60,7 +60,7 @@ object MainForm: TMainForm
     Top = 4
     Width = 625
     Height = 409
-    ActivePage = TS_TDraw
+    ActivePage = TS_AD
     Anchors = [akLeft, akTop, akRight, akBottom]
     Font.Charset = RUSSIAN_CHARSET
     Font.Color = clWindowText
@@ -68,7 +68,7 @@ object MainForm: TMainForm
     Font.Name = 'Microsoft Sans Serif'
     Font.Style = []
     ParentFont = False
-    TabIndex = 7
+    TabIndex = 0
     TabOrder = 1
     OnChange = PagesChange
     object TS_AD: TTabSheet
@@ -87,6 +87,7 @@ object MainForm: TMainForm
         Title.Text.Strings = (
           'Amplitude distribution - f(x)')
         LeftAxis.ExactDateTime = False
+        LeftAxis.Increment = 0.05
         LeftAxis.LabelStyle = talValue
         LeftAxis.TickOnLabelsOnly = False
         LeftAxis.Title.Caption = 'f(x)'
@@ -134,6 +135,7 @@ object MainForm: TMainForm
         BackWall.Brush.Style = bsClear
         Title.Text.Strings = (
           'Phase Distribution - f(Psi)')
+        LeftAxis.ExactDateTime = False
         LeftAxis.LabelStyle = talValue
         LeftAxis.Title.Caption = 'Psi, deg'
         Legend.LegendStyle = lsSeries
@@ -178,6 +180,8 @@ object MainForm: TMainForm
         BackWall.Brush.Style = bsClear
         Title.Text.Strings = (
           'Amplitude Distribution Comparison')
+        LeftAxis.ExactDateTime = False
+        LeftAxis.Increment = 0.05
         LeftAxis.LabelStyle = talValue
         LeftAxis.Title.Caption = 'cos(Psi)'
         Legend.LegendStyle = lsSeries

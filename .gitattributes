@@ -1,0 +1,2 @@
+# Exclude Delphi Form files in language statistics as they are automatically generated, but recognized as Pascal
+*.dfm linguist-vendored

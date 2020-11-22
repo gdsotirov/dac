@@ -21,8 +21,7 @@
  * Description: Definitions of the form
  * File: enter_n.h
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_n.h,v 1.2 2005/06/11 18:40:42 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #ifndef enter_nH

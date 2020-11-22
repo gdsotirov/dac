@@ -21,8 +21,7 @@
  * Description: Implementation of the form
  * File: enter_n.cpp
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_n.cpp,v 1.2 2005/06/11 18:40:42 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #include <vcl.h>

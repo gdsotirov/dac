@@ -21,8 +21,7 @@
  * Description: The implementation of the window for entering input parameters
  * File: enter_data.cpp
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_data.cpp,v 1.6 2005/06/11 18:40:28 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #include <vcl.h>

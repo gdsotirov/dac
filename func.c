@@ -21,8 +21,7 @@
  * Description: Implementations of the main functions used for calculations
  * File: func.c
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: func.c,v 1.3 2005/06/14 20:14:33 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #include <math.h>

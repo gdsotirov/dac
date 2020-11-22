@@ -21,8 +21,7 @@
  * Description: Implementation of the main form
  * File: mainform.cpp
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.cpp,v 1.13 2005/06/15 19:48:07 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #include <vcl.h>

@@ -21,8 +21,7 @@
  * Description: Definitions of the main form
  * File: mainform.h
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: mainform.h,v 1.10 2005/06/13 16:59:10 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #ifndef MainFormH

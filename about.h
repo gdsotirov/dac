@@ -21,8 +21,7 @@
  * Description: About box definitions
  * File: about.h
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: about.h,v 1.5 2005/06/11 18:38:25 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #ifndef aboutH

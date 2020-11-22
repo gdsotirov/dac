@@ -21,8 +21,7 @@
  * Description: Defintions of the main functions and constants used for calculations
  * File: func.h
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: func.h,v 1.2 2005/06/06 17:25:16 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #ifndef __DND_FUNC_H__

@@ -21,8 +21,7 @@
  * Description: Main programm
  * File: dnd.cpp
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: dac.cpp,v 1.6 2005/06/11 18:41:10 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #include <vcl.h>

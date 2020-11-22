@@ -21,8 +21,7 @@
  * Description: The definitions of the window for entering input parameters
  * File: enter_data.h
  * ---
- * Written by George D. Sotirov <gdsotirov@dir.bg>
- * $Id: enter_data.h,v 1.5 2005/06/11 18:40:10 gsotirov Exp $
+ * Written by Georgi D. Sotirov <gdsotirov@gmail.com>
  */
 
 #ifndef enter_dataH
